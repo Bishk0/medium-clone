@@ -12,7 +12,7 @@ ReactDOM.render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </CurrentUserChecker>,
+    </CurrentUserChecker>
   </CurrentUserProvider>,
   document.getElementById('root')
 );
