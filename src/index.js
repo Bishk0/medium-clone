@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
+import { CurrentUserProvider } from './contexts/currentUser';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <CurrentUserProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  </CurrentUserProvider>,
   document.getElementById('root')
 );
