@@ -2,6 +2,7 @@ import { stringify } from "query-string";
 import { useEffect } from "react";
 import Feed from "../../components/Feed";
 import Pagination from "../../components/Pagination";
+import Banner from "../../components/Banner";
 import Loading from "../../components/loading";
 import ErrorMessage from "../../components/errorMessage";
 import PopularTags from "../../components/popularTags";
@@ -22,12 +23,7 @@ const GlobalFeed = ({location, match}) => {
 
   return (
     <div className="home-page">
-      <div className="banner">
-        <div className="container">
-          <h1>Medium</h1>
-          <p>A place to share knowledge</p>
-        </div>
-      </div>
+      <Banner />
       <div className="container page">
         <div className="row">
           <div className="col-md-9">

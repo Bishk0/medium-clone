@@ -10,17 +10,16 @@ import FeedToggler from "../../components/FeedToggler";
 import useFetch from "../../hooks/useFetch";
 import { getPagination, limit } from "../../utils";
 
-const TagFeed = ({location, match}) => {
-  const tagName = match.params.slug;
+const YourFeed = ({location, match}) => {
   const {offset, currentPage} = getPagination(location.search);
-  const stringifiedParams = stringify({ limit, offset, tag: tagName });
-  const apiUrl = `/articles?${stringifiedParams}`;
+  const stringifiedParams = stringify({ limit, offset });
+  const apiUrl = `/articles/feed?${stringifiedParams}`;
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl);
   const url = match.url;
 
   useEffect(() => {
     doFetch()
-  }, [doFetch, currentPage, tagName])
+  }, [doFetch, currentPage])
 
   return (
     <div className="home-page">
@@ -28,7 +27,7 @@ const TagFeed = ({location, match}) => {
       <div className="container page">
         <div className="row">
           <div className="col-md-9">
-            <FeedToggler tagName={tagName} />
+            <FeedToggler />
             {isLoading && <Loading />}
             {error && <ErrorMessage /> }
             {!isLoading && response && (
@@ -45,4 +44,4 @@ const TagFeed = ({location, match}) => {
   );
 }
 
-export default TagFeed;
+export default YourFeed;
